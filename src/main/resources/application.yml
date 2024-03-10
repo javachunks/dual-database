@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: dual-db-service
+  profile:
+    active: default
+  datasource:
+    jdbcUrl: jdbc:postgresql://localhost:5432/ordering_system?currentSchema=product_mgmt&binaryTransfer=true&reWriteBatchedInserts=true
+    username: admin
+    password: admin
+  custom:
+    jdbcUrl: jdbc:postgresql://localhost:5432/ordering_system?currentSchema=user_mgmt&binaryTransfer=true&reWriteBatchedInserts=true
+    username: admin
+    password: admin
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 8080
+  servlet:
+    context-path: /dual-db-service
